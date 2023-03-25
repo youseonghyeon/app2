@@ -1,6 +1,5 @@
 package converter;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DoubleConverter {
 
-    ValueConverter converter = new ValueConverter();
+    EasyConverter converter = new EasyConverter();
 
     @Test
     void intToDouble() {

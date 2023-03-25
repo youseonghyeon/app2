@@ -4,7 +4,7 @@ import exception.NumOverflowException;
 
 import java.util.List;
 
-public class ValueConverter {
+public class EasyConverter {
 
     public <T> String toString(T arg) {
         if (arg == null)

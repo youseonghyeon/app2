@@ -4,10 +4,10 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
 @AutoConfiguration
-public class ValueConverterAutoConfig {
+public class EasyConverterAutoConfig {
 
     @Bean
-    public ValueConverter typeConverter() {
-        return new ValueConverter();
+    public EasyConverter easyConverter() {
+        return new EasyConverter();
     }
 }

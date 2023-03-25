@@ -2,14 +2,13 @@ package converter;
 
 import exception.NumOverflowException;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ToIntConverterTest {
 
-    ValueConverter converter = new ValueConverter();
+    EasyConverter converter = new EasyConverter();
 
     @Test
     void nullToIntTest() {

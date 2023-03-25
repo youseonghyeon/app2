@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class StringConverter {
 
-    ValueConverter converter = new ValueConverter();
+    EasyConverter converter = new EasyConverter();
 
     @Test
     void objectToString(){
