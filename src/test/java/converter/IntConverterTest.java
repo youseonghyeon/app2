@@ -1,12 +1,12 @@
 package converter;
 
-import exception.NumOverflowException;
+import exception.NumberOverflowException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ToIntConverterTest {
+public class IntConverterTest {
 
     EasyConverter converter = new EasyConverter();
 
@@ -31,14 +31,14 @@ public class ToIntConverterTest {
 
     @Test
     void FloatToInt() {
-        Integer i = converter.toInt(12F);
+        Integer i = converter.toInt(12.923142F);
         assertEquals(12, i);
         assertEquals(Integer.class, i.getClass());
     }
 
     @Test
     void DoubleToInt() {
-        Double a = 12D;
+        Double a = 12.999D;
         Integer i = converter.toInt(a);
         assertEquals(12, i);
         assertEquals(Integer.class, i.getClass());
@@ -70,6 +70,6 @@ public class ToIntConverterTest {
 
     @Test
     void overflowTest() {
-        assertThrows(NumOverflowException.class, () -> converter.toInt(2147483647213D));
+        assertThrows(NumberOverflowException.class, () -> converter.toInt(2147483647213D));
     }
 }

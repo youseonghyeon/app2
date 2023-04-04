@@ -1,6 +1,7 @@
 package converter;
 
-import exception.NumOverflowException;
+import exception.NumberOverflowException;
+import exception.NumberUnderflowException;
 
 import java.util.List;
 
@@ -16,14 +17,19 @@ public class EasyConverter {
         if (arg == null)
             return null;
         if (arg instanceof Double) {
-            long l = Math.round((Double) arg);
-            if (l > Integer.MAX_VALUE || l < Integer.MIN_VALUE) {
-                throw new NumOverflowException("Arg is bigger than integer max value");
+            double d = (double) arg;
+            if (d > Integer.MAX_VALUE) {
+                throw new NumberOverflowException("Arg is bigger than integer max value");
             }
-            return (int) Math.round((Double) arg);
+            if (d < Integer.MIN_VALUE) {
+                throw new NumberUnderflowException("Arg is lower than integer min value");
+            }
+            return (int) Math.floor(d);
         }
-        if (arg instanceof Float)
-            return Math.round((Float) arg);
+        if (arg instanceof Float) {
+            float f = (Float) arg;
+            return (int) f;
+        }
         return Integer.valueOf(toString(arg));
     }
 
@@ -49,6 +55,10 @@ public class EasyConverter {
     public <T> Float toFloat(T arg) {
         if (arg == null)
             return null;
+        if (arg instanceof Double) {
+            double d = (double) arg;
+            return (float) d;
+        }
         return Float.valueOf(toString(arg));
     }
 
@@ -62,15 +72,13 @@ public class EasyConverter {
         return str.charAt(0);
     }
 
-    public <T> List<T> toList(T... args) {
+    @SafeVarargs
+    public final <T> List<T> toList(T... args) {
         if (args == null) {
             return null;
         }
         return List.of(args);
     }
 
-//    public <E, T> E toType(Class<E> targetClass, T target) {
-//
-//    }
 
 }

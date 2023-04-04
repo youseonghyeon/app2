@@ -10,6 +10,10 @@ public class DoubleConverter {
     EasyConverter converter = new EasyConverter();
 
     @Test
+    void nullTest() {
+        Double aDouble = converter.toDouble(null);
+    }
+    @Test
     void intToDouble() {
         Double d = converter.toDouble(12);
         assertEquals(12D, d);
